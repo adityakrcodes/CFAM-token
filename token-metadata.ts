@@ -1,3 +1,7 @@
+// Please update the values of the following variables:
+// Line number: 14 Replace with the token program id
+// Line numner: 29 Replace the location of your wallet keypair file
+// Line number: 30 Replace with your wallet public key
 
 import { createV1, updateV1 ,Collection, CreateMetadataAccountV3InstructionAccounts, CreateMetadataAccountV3InstructionDataArgs, Creator, MPL_TOKEN_METADATA_PROGRAM_ID, UpdateMetadataAccountV2InstructionAccounts, UpdateMetadataAccountV2InstructionData, Uses, createMetadataAccountV3, updateMetadataAccountV2, findMetadataPda, CreateV1InstructionAccounts, CreateV1InstructionData, TokenStandard, CollectionDetails, PrintSupply, UpdateV1InstructionData, UpdateV1InstructionAccounts, Data} from "@metaplex-foundation/mpl-token-metadata";
 import * as web3 from "@solana/web3.js";
@@ -7,7 +11,7 @@ import { fromWeb3JsKeypair, fromWeb3JsPublicKey} from '@metaplex-foundation/umi-
 import * as bs58 from "bs58";
 
 const SPL_TOKEN_2022_PROGRAM_ID: PublicKey = publicKey(
-    "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", // Replace with the token program id
     );
 
     export function loadWalletKey(keypairFile:string): web3.Keypair {
@@ -23,7 +27,7 @@ const INITIALIZE = true;
 async function main(){
     console.log("Updating metadata...");
     const myKeypair = loadWalletKey("admin-user.json"); // Replace with your wallet keypair
-    const mint = new web3.PublicKey("AcShy4Jw3ou8eYL3PEodxXo1Ue3GpZYchvH6E63gn6X5");
+    const mint = new web3.PublicKey("AcShy4Jw3ou8eYL3PEodxXo1Ue3GpZYchvH6E63gn6X5"); // Replace with your wallet public key
 
     const umi = createUmi("https://api.mainnet-beta.solana.com");
     const signer = createSignerFromKeypair(umi, fromWeb3JsKeypair(myKeypair))
