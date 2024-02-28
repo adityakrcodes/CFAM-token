@@ -11,7 +11,7 @@ import { fromWeb3JsKeypair, fromWeb3JsPublicKey} from '@metaplex-foundation/umi-
 import * as bs58 from "bs58";
 
 const SPL_TOKEN_2022_PROGRAM_ID: PublicKey = publicKey(
-    "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA", // Replace with the token program id
+    "<Your Tokens program ID>", // Replace with the token program id
     );
 
     export function loadWalletKey(keypairFile:string): web3.Keypair {
@@ -26,7 +26,7 @@ const INITIALIZE = true;
 
 async function main(){
     console.log("Updating metadata...");
-    const myKeypair = loadWalletKey("admin-user.json"); // Replace with your wallet keypair
+    const myKeypair = loadWalletKey("2qbhPZCfbHf43M4WGgugh8YiR7evS5HaQHtjWUs1kqq8.json"); // Replace with your wallet keypair
     const mint = new web3.PublicKey("AcShy4Jw3ou8eYL3PEodxXo1Ue3GpZYchvH6E63gn6X5"); // Replace with your wallet public key
 
     const umi = createUmi("https://api.mainnet-beta.solana.com");
@@ -83,8 +83,6 @@ async function main(){
         const txid = await updateV1(umi, {...accounts, ...data}).sendAndConfirm(umi);
         console.log(bs58.encode(txid.signature))
     }
-
-
 }
 
 main();
